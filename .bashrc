@@ -12,6 +12,15 @@ umask 022
 # Errors autocorrection
 shopt -s cdspell
 
+# Append to the Bash history file, rather than overwriting it
+shopt -s histappend
+
+# `**/qux` will enter `./foo/bar/baz/qux`
+shopt -s autocd
+
+# Recursive globbing, e.g. `echo **/*.txt`
+shopt -s globstar
+
 export EDITOR=vi
 
 # Less onput/output preprocess to display soem binary formats
@@ -20,7 +29,7 @@ export EDITOR=vi
 # Correct screen and tmux behavior with ssh-agent
 parent="$(ps -o comm --no-headers $PPID)"
 
-# Keep ssh variables for screen/tmux sessions
+# Keep ssh agent auth variables for screen/tmux sessions
 case $parent in
 sshd)
         keep_vars="SSH_CLIENT SSH_TTY SSH_AUTH_SOCK SSH_CONNECTION DISPLAY XAUTHORITY"
@@ -34,8 +43,8 @@ screen|tmux)
         source $HOME/.ssh/keep_vars
 ;;
 esac
-# This command must be run from shell within detached and re-attached screen session
-# to interact with ssh-agent properly
+# This command must be run from shell within detached and re-attached
+# screen/tmux session to interact with ssh-agent properly
 alias fixssh="source $HOME/.ssh/keep_vars"
 
 # Colorize ls
