@@ -1,7 +1,9 @@
-* .bashrc: split into several files:
+- .bashrc: split into several files:
 	.bash_aliases
 	.bash_exports
 	.bash_prompt (https://github.com/mathiasbynens/dotfiles/blob/master/.bash_prompt)
 
-* create bootstrap files, that creates symlinks for all this files in home dir
++ create bootstrap file, that creates symlinks for all this files in home dir
+
+- bootstrap: get filename dynamicaly, do not use hardcoded list
 
