@@ -51,3 +51,5 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
+set tabstop=4
+set shiftwidth=4
