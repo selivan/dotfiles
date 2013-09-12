@@ -51,6 +51,9 @@ alias fixssh="source $HOME/.ssh/keep_vars"
 [ -f "$(which dircolors)" ] && eval "$(dircolors)"
 alias ls='ls --color=auto'
 
+# Disable IXON control sequence (Freezing termianl with Control-S)
+stty -ixon
+
 # Aliases
 alias rm='rm -i'
 alias cp='cp -i'
