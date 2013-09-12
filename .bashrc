@@ -21,7 +21,7 @@ shopt -s autocd
 # Recursive globbing, e.g. `echo **/*.txt`
 shopt -s globstar
 
-export EDITOR=vi
+export EDITOR=vim
 
 # Less onput/output preprocess to display soem binary formats
 [ -f "$(which lesspipe)" ] && eval "$(lesspipe)"
