@@ -26,10 +26,9 @@ export EDITOR=vim
 # Less onput/output preprocess to display soem binary formats
 [ -f "$(which lesspipe)" ] && eval "$(lesspipe)"
 
-# Correct screen and tmux behavior with ssh-agent
+# Correct screen and tmux behavior with ssh-agent:
+# keep ssh agent auth variables for screen/tmux sessions
 parent="$(ps -o comm --no-headers $PPID)"
-
-# Keep ssh agent auth variables for screen/tmux sessions
 case $parent in
 sshd)
         keep_vars="SSH_CLIENT SSH_TTY SSH_AUTH_SOCK SSH_CONNECTION DISPLAY XAUTHORITY"
