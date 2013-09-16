@@ -53,6 +53,12 @@ alias ls='ls --color=auto'
 # Disable IXON control sequence (Freezing termianl with Control-S)
 stty -ixon
 
+# Disable screen blanking on text console
+#setterm -blank 0 -powersave off -powerdown 0
+
+# Disable screen blanking in X
+#xset s off
+
 # Aliases
 alias rm='rm -i'
 alias cp='cp -i'
