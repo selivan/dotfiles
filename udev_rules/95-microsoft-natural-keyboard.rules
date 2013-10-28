@@ -1,0 +1,2 @@
+ENV{ID_VENDOR}=="Microsoft", ENV{ID_MODEL_ID}=="00db", RUN+="keymap $name 0xc022d up 0xc022e down"
+
