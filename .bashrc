@@ -21,15 +21,14 @@ shopt -s autocd
 # Recursive globbing, e.g. `echo **/*.txt`
 shopt -s globstar
 
-export EDITOR=vi
+export EDITOR=vim
 
 # Less onput/output preprocess to display soem binary formats
 [ -f "$(which lesspipe)" ] && eval "$(lesspipe)"
 
-# Correct screen and tmux behavior with ssh-agent
+# Correct screen and tmux behavior with ssh-agent:
+# keep ssh agent auth variables for screen/tmux sessions
 parent="$(ps -o comm --no-headers $PPID)"
-
-# Keep ssh agent auth variables for screen/tmux sessions
 case $parent in
 sshd)
         keep_vars="SSH_CLIENT SSH_TTY SSH_AUTH_SOCK SSH_CONNECTION DISPLAY XAUTHORITY"
@@ -50,6 +49,15 @@ alias fixssh="source $HOME/.ssh/keep_vars"
 # Colorize ls
 [ -f "$(which dircolors)" ] && eval "$(dircolors)"
 alias ls='ls --color=auto'
+
+# Disable IXON control sequence (Freezing termianl with Control-S)
+stty -ixon
+
+# Disable screen blanking on text console
+#setterm -blank 0 -powersave off -powerdown 0
+
+# Disable screen blanking in X
+#xset s off
 
 # Aliases
 alias rm='rm -i'
