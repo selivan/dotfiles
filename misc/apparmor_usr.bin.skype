@@ -1,0 +1,45 @@
+#include <tunables/global>
+ /usr/bin/skype {
+    #include <abstractions/base>
+    #include <abstractions/user-tmp>
+    #include <abstractions/audio>
+    #include <abstractions/video>
+    #include <abstractions/nameservice>
+    #include <abstractions/ssl_certs>
+    #include <abstractions/fonts>
+    #include <abstractions/X>
+    #include <abstractions/freedesktop.org>
+    #include <abstractions/kde>
+    /usr/bin/skype mr,
+    /opt/skype/skype pix,
+    /opt/skype/** kmr,
+    /usr/share/fonts/X11/** m,
+    @{PROC}/*/net/arp r,
+    @{PROC}/sys/kernel/ostype r,
+    @{PROC}/sys/kernel/osrelease r,
+    /dev/ r,
+    /dev/tty rw,
+        /dev/snd/* mrw,
+        /dev/shm/ r,
+        /dev/shm/pulse-shm-* mrw,
+    /etc/pulse/client.conf r,
+    /dev/pts/* rw,
+    /dev/video* mrw,
+    /var/lib/dbus/machine-id r,
+    @{HOME}/Downloads/* krw,
+    @{HOME}/Downloads/ krw,
+     /etc/xdg/Trolltech.conf rk,
+    /usr/share/locale-langpack/* mr,
+    /usr/share/glib-2.0/schemas/gschemas.compiled rm,
+    /sys/devices/system/cpu/cpu0/cpufreq/* r,
+    @{HOME}/.Skype/ rw,
+    @{HOME}/.Skype/** krw,
+    /usr/share/skype/** kmr,
+    /usr/share/skype/sounds/*.wav kr,
+    /home/selivan-mint/tmp krw,
+    deny @{HOME}/.mozilla/ r,
+    deny @{PROC}/[0-9]*/fd/ r,
+    deny @{PROC}/[0-9]*/task/ r,
+    deny @{PROC}/[0-9]*/task/** r,
+ }
+
