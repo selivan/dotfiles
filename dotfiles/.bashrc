@@ -71,3 +71,5 @@ alias ssh='source $HOME/.ssh/keep_vars; ssh'
 alias scp='source $HOME/.ssh/keep_vars; scp'
 alias whereami='hostname -f'
 
+[ -f ~/.bashrc_local ] && source ~/.bashrc_local
+
