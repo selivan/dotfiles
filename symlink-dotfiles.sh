@@ -1,34 +1,25 @@
 #!/bin/bash
 #set -x
 
-cd "$PWD"
+cd `dirname $0`/dotfiles
+pwd
 
-which git && git pull
+#which git > /dev/null 2>&1 && git pull
 
-function bcp_link() {
-# incorrect parameter
-[ -z "$1" ] && return
-# if file is not symlink
-if [ ! -L ~/"$1" ]; then 
-	mv -f ~/"$1" ~/"$1.bak"
-else
-	rm -f  ~/"$1"
-fi
-ln -sf "$PWD"/"$1" ~/"$1"
-ls -og ~/"$1"
-}
-
-files=(\
-.config/htop/htoprc \
-.config/mc/ini \
-.bash_logout \
-.bashrc \
-.inputrc \
-.screenrc \
-.vimrc \
-)
-
-for f in ${files[*]}; do
-	bcp_link $f
+find . -type f -print0 | xargs -0 -n1 | while read name; do
+	name="$name"
+	link="$HOME${name#.}"
+	dir=`dirname "$link"`
+	if [ "$dir" != "$HOME" ]; then
+		mkdir -p "$dir"
+	fi
+	if [ -e "$link" -a ! -L "$link" ]; then
+		mv "$link" "$link".bak`+%Y-%M-%d_%H-%M-%S`
+	elif [ -L "$link" ]; then
+		rm "$link"
+	fi
+	name_full=`readlink -f "$name"`
+	ln -sf "$name_full" "$link"
+   	ls -l "$link"
 done
 
