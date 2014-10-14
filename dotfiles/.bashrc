@@ -4,7 +4,7 @@
 [[ $- != *i* ]] && return
 
 export PS1='\h:\w\$ '
-umask 022
+umask 027
 
 # Bash completion
 [ -f /etc/bash_completion ] && . /etc/bash_completion
