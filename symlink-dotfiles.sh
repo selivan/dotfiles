@@ -14,7 +14,7 @@ find . -type f -print0 | xargs -0 -n1 | while read name; do
 		mkdir -p "$dir"
 	fi
 	if [ -e "$link" -a ! -L "$link" ]; then
-		mv "$link" "$link".bak`+%Y-%M-%d_%H-%M-%S`
+		mv "$link" "$link".bak`date +%Y-%M-%d_%H-%M-%S`
 	elif [ -L "$link" ]; then
 		rm "$link"
 	fi
