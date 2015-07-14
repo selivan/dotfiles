@@ -71,5 +71,12 @@ alias ssh='source $HOME/.ssh/keep_vars; ssh'
 alias scp='source $HOME/.ssh/keep_vars; scp'
 alias whereami='hostname -f'
 
-[ -f ~/.bashrc_local ] && source ~/.bashrc_local
+tssh() {
+ssh "$@" -t '
+which tmux &> /dev/null || { echo "no tmux"; exit 1; }
+test -n "$SSH_AUTH_SOCK" && ln -sf $SSH_AUTH_SOCK $HOME/.ssh/auth_sock
+tmux has-session && TMUX="tmux attach" || TMUX="tmux"
+SSH_AUTH_SOCK=$HOME/.ssh/auth_sock $TMUX'
+}
 
+[ -f ~/.bashrc_local ] && source ~/.bashrc_local
