@@ -79,4 +79,17 @@ tmux has-session && TMUX="tmux attach" || TMUX="tmux"
 SSH_AUTH_SOCK=$HOME/.ssh/auth_sock $TMUX'
 }
 
+ssh() {
+which tmux > /dev/null && tmux has-session 2>/dev/null && tmux rename-window $1
+command ssh "$@"
+which tmux > /dev/null && tmux has-session 2>/dev/null && tmux rename-window bash
+}
+
+if [  -n "$SSH_AUTH_SOCK"  -a  "$SSH_AUTH_SOCK" != "$HOME/.ssh/auth_sock"  ]; then
+        ln -sf "$SSH_AUTH_SOCK" "$HOME/.ssh/auth_sock"
+        SSH_AUTH_SOCK="$HOME/.ssh/auth_sock"
+fi
+
+alias fuckoff='exec sh -c "unset TMOUT; exec bash"'
+
 [ -f ~/.bashrc_local ] && source ~/.bashrc_local
