@@ -1,0 +1,10 @@
+[extensions]
+color =
+pager=
+
+[color]
+# valid modes are win32, ansi, auto, off
+mode = auto
+
+[pager]
+pager = less -FRX
