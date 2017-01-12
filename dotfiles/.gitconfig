@@ -1,0 +1,18 @@
+[user]
+        name = Pavel Selivanov
+        email = selivan.at.github@gmail.com
+        username = selivan
+[merge]
+        tool = meld
+[diff]
+        tool = meld
+        # Shifts the hunk boundary in an attempt to make the resulting patch easier to read
+        compactionHeuristic = on
+        # Distinguishes similar line changes better 
+        indentHeuristic = on
+[alias]
+        co = checkout
+        br = branch
+        ci = commit
+        st = status
+        mnf = merge --no-ff
