@@ -16,3 +16,4 @@
         ci = commit
         st = status
         mnf = merge --no-ff
+        tree = log --graph --decorate --abbrev-commit --oneline
