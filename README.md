@@ -1,1 +1,1 @@
-My dotfiles, scripts to symlink actual to this directory, and sime useful staff.
+My dotfiles, script to symlink actual dotfiles to this directory, and some useful staff.
