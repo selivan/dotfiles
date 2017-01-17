@@ -21,6 +21,9 @@ shopt -s autocd
 # Recursive globbing, e.g. `echo **/*.txt`
 shopt -s globstar
 
+# bash history: ignore duplicates and commands starting from space
+HISTCONTROL=ignorespace
+
 # Less onput/output preprocess to display soem binary formats
 [ -f "$(which lesspipe)" ] && eval "$(lesspipe)"
 
