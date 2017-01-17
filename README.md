@@ -1,6 +1,6 @@
 My dotfiles, script to symlink actual dotfiles to this directory, and some useful staff.
 
-To pull with https but push with ssh:
+To pull changes from repository with https but push with ssh:
 
 `.git/config`
 
