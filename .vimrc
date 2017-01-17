@@ -21,7 +21,7 @@ syntax on
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
-set background=dark
+"set background=dark
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
@@ -40,7 +40,7 @@ endif
 set showcmd             " Show (partial) command in status line.
 set showmatch           " Show matching brackets.
 "set ignorecase         " Do case insensitive matching
-"set smartcase          " Do smart case matching
+set smartcase          " Do smart case matching
 "set incsearch          " Incremental search
 "set autowrite          " Automatically save before commands like :next and :make
 "set hidden             " Hide buffers when they are abandoned
@@ -49,6 +49,11 @@ set showmatch           " Show matching brackets.
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
+endif
+
+" Local config
+if filereadable(".vimrc.local")
+  source .vimrc.local
 endif
 
 set tabstop=4

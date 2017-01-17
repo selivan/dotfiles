@@ -1,0 +1,46 @@
+###########################
+# xbindkeys configuration #
+###########################
+
+"gmrun"
+    m:0x50 + c:27
+    Mod2+Mod4 + r
+
+"exo-open --launch FileManager"
+    m:0x50 + c:26
+    Mod2+Mod4 + e
+
+"xfce4-popup-applicationsmenu"
+    m:0x14 + c:9
+    Control+ Escape
+
+"xflock4"
+    m:0x50 + c:46
+    Mod2+Mod4 + l
+
+"xfce4-display-settings -m"
+    m:0x50 + c:33
+    Mod2+Mod4 + p
+
+"xfce4-screenshooter"
+    c:107
+    Print
+
+"xfce4-session-logout"
+    m:0x50 + c:22
+    Mod2+Mod4 + BackSpace
+
+# Sound control
+"amixer -D pulse sset Master 5%+"
+    m:0x50 + c:112
+    Mod2+Mod4 + Prior
+
+"amixer -D pulse sset Master 5%-"
+    m:0x50 + c:117
+    Mod2+Mod4 + Next
+
+# Keepass auto-type
+"mono /usr/lib/keepass2/KeePass.exe --auto-type"
+    m:0x50 + c:38
+    Mod2+Mod4 + a
+

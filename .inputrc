@@ -1,3 +1,5 @@
+# man readline
+
 # Make Tab autocomplete regardless of filename case
 # set completion-ignore-case on
 
@@ -17,7 +19,6 @@ set show-all-if-ambiguous on
 set skip-completed-text on
 
 # Allow UTF-8 input and output, instead of showing stuff like $'\0123\0456'
-set input-meta on
-set output-meta on
-set convert-meta off
-#
+#set input-meta on
+#set output-meta on
+#set convert-meta off
