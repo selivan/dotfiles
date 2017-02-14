@@ -57,6 +57,11 @@ which tmux >/dev/null && tmux has-session 2>/dev/null && tmux rename-window bash
 
 which vim > /dev/null && export EDITOR=vim
 
+# URL encode/decode
+alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
+
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
+
 # Aliases
 alias rm='rm -i'
 alias cp='cp -i'
