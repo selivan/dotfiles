@@ -39,7 +39,8 @@ fi
 
 # Rename tmux window when connecting to remote host
 ssh() {
-which tmux >/dev/null && tmux has-session 2>/dev/null && tmux rename-window $1
+# ${@: -1} - last argument (bash)
+which tmux >/dev/null && tmux has-session 2>/dev/null && tmux rename-window ${@: -1}
 command ssh "$@"
 which tmux >/dev/null && tmux has-session 2>/dev/null && tmux rename-window bash
 }
