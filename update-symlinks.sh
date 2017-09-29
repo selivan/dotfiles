@@ -26,7 +26,7 @@ find . -path './.*' \! -path './.git/*' -type f -print0 | xargs -0 -n1 | while r
 
 	# Do nothing if link is already ok
 	current_link=`readlink -f "$dotfile"`
-	[ "$current_link" -eq "$target" ] && continue
+	[ "$current_link" = "$target" ] && continue
 
 	# Create directory if necessary and update symlink
 	if mkdir -p "$dir" && ln -sf "$target" "$dotfile"; then
