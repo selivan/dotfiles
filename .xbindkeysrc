@@ -31,10 +31,12 @@
     Mod2+Mod4 + BackSpace
 
 # Sound control
+#"pactl set-sink-volume 0 +5%"
 "amixer -D pulse sset Master 5%+"
     m:0x50 + c:112
     Mod2+Mod4 + Prior
 
+#"pactl set-sink-volume 0 -5%"
 "amixer -D pulse sset Master 5%-"
     m:0x50 + c:117
     Mod2+Mod4 + Next
