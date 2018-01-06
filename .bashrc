@@ -28,7 +28,7 @@ __prompt_command() {
         local END='$'
     fi
 
-    PS1+="@${clLightGreen}\h${clReset}:${clBlue}\W${clReset}"
+    PS1+="@${clLightGreen}\h${clReset}:${clBlue}\w${clReset}"
 
     if [ $EXIT != 0 ]; then
         PS1+="(${clRed}$EXIT${clReset})$END "
