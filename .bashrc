@@ -3,7 +3,7 @@
 # exit if shell in non-interactive
 [[ $- != *i* ]] && return
 
-export PS1='\h:\w\$ '
+export PS1='\u@\h:\w\$ '
 umask 027
 
 # Bash completion
