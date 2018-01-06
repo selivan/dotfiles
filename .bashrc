@@ -6,11 +6,42 @@
 export PS1='\u@\h:\w\$ '
 umask 027
 
+# Produce colorized PS1 wit indication of last command exit code
+__prompt_command() {
+    local EXIT="$?"             # This needs to be first
+    PS1=""
+
+    local clReset='\[\e[0m\]'
+    local clRed='\[\e[0;31m\]'
+    local clGreen='\[\e[0;32m\]'
+    local clLightGreen='\[\e[01;32m\]'
+    local clYellow='\[\e[1;33m\]'
+    local clBlue='\[\e[1;34m\]'
+    local clPur='\[\e[0;35m\]'
+
+    # red color for root user
+    if [ "$USER" == "root" ]; then
+        PS1="${clRed}\u${clReset}"
+        local END='#'
+    else
+        PS1="${clLightGreen}\u${clReset}"
+        local END='$'
+    fi
+
+    PS1+="@${clLightGreen}\h${clReset}:${clBlue}\W${clReset}"
+
+    if [ $EXIT != 0 ]; then
+        PS1+="(${clRed}$EXIT${clReset})$END "
+    else
+        PS1+="$END "
+    fi
+}
+
+# Executed as command prior to issuing each primary prompt
+PROMPT_COMMAND=__prompt_command
+
 # Bash completion
-if [ -f /etc/bash_completion ]; then
-   . /etc/bash_completion
-   export PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
+[ -f /etc/bash_completion ] && source /etc/bash_completion
 
 # Errors autocorrection
 shopt -s cdspell
@@ -24,7 +55,7 @@ shopt -s globstar
 # bash history: ignore duplicates and commands starting from space
 HISTCONTROL=ignorespace
 
-# Less onput/output preprocess to display soem binary formats
+# Less onput/output preprocess to display some binary formats
 [ -f "$(which lesspipe)" ] && eval "$(lesspipe)"
 
 # Colorize ls
@@ -60,7 +91,6 @@ which vim > /dev/null && export EDITOR=vim
 
 # URL encode/decode
 alias urldecode='python -c "import sys, urllib as ul; print ul.unquote_plus(sys.argv[1])"'
-
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1])"'
 
 # Aliases
