@@ -42,6 +42,8 @@ PROMPT_COMMAND=__prompt_command
 
 # Bash completion
 [ -f /etc/bash_completion ] && source /etc/bash_completion
+# AWS cli completion
+which aws_completer &> /dev/null && complete -C aws_completer aws
 
 # Errors autocorrection
 shopt -s cdspell
