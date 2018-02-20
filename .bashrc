@@ -102,3 +102,5 @@ alias mv='mv -i'
 alias ll='ls --color=auto -l'
 alias df='df -h'
 alias w1='watch -n 1'
+alias pinggw='ping $(ip route show 0.0.0.0/0 |  cut -d' ' -f3)'
+
