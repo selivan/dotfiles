@@ -56,6 +56,8 @@ shopt -s globstar
 
 # bash history: ignore duplicates and commands starting from space
 HISTCONTROL=ignorespace
+# bash history: history command time format, uses strftime(3)
+HISTTIMEFORMAT='%F %T '
 
 # Less onput/output preprocess to display some binary formats
 [ -f "$(which lesspipe)" ] && eval "$(lesspipe)"
