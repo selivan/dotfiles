@@ -1,48 +1,50 @@
-###########################
+e##########################
 # xbindkeys configuration #
 ###########################
 
-"gmrun"
-    m:0x50 + c:27
-    Mod2+Mod4 + r
+#"gmrun"
+#    m:0x50 + c:27
+#    Mod2+Mod4 + r
 
-"exo-open --launch FileManager"
-    m:0x50 + c:26
-    Mod2+Mod4 + e
+#"exo-open --launch FileManager"
+#    m:0x50 + c:26
+#    Mod2+Mod4 + e
 
-"xfce4-popup-applicationsmenu"
-    m:0x14 + c:9
-    Control+ Escape
+#"xfce4-popup-applicationsmenu"
+#    m:0x14 + c:9
+#    Control+ Escape
 
-"xflock4"
-    m:0x50 + c:46
-    Mod2+Mod4 + l
+#"xflock4"
+#    m:0x50 + c:46
+#    Mod2+Mod4 + l
 
-"xfce4-display-settings -m"
-    m:0x50 + c:33
-    Mod2+Mod4 + p
+#"xfce4-display-settings -m"
+#    m:0x50 + c:33
+#    Mod2+Mod4 + p
 
-"xfce4-screenshooter"
-    c:107
-    Print
+#"xfce4-screenshooter"
+#    c:107
+#    Print
 
-"xfce4-session-logout"
-    m:0x50 + c:22
-    Mod2+Mod4 + BackSpace
+#"xfce4-session-logout"
+#    m:0x50 + c:22
+#    Mod2+Mod4 + BackSpace
 
 # Sound control
 #"pactl set-sink-volume 0 +5%"
-"amixer -D pulse sset Master 5%+"
-    m:0x50 + c:112
-    Mod2+Mod4 + Prior
+#"amixer -D pulse sset Master 5%+"
+#"xdotool key XF86AudioRaiseVolume"
+#    m:0xc + c:117
+#    Control+Alt + Next
 
 #"pactl set-sink-volume 0 -5%"
-"amixer -D pulse sset Master 5%-"
-    m:0x50 + c:117
-    Mod2+Mod4 + Next
+#"amixer -D pulse sset Master 5%-"
+#"xdotool key XF86AudioLowerVolume"
+#    m:0xc + c:112
+#    Control+Alt + Prior
 
 # Keepass auto-type
-"mono /usr/lib/keepass2/KeePass.exe --auto-type"
-    m:0x50 + c:38
-    Mod2+Mod4 + a
+#"mono /usr/lib/keepass2/KeePass.exe --auto-type"
+#    m:0x50 + c:38
+#    Mod2+Mod4 + a
 
