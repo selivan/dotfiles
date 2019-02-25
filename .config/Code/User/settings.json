@@ -1,1 +1,94 @@
+{
 
+"files.associations": {
+    // Systemd configs
+    "*.service": "ini",
+    // Linux desktop shortcuts
+    "*.desktop": "ini",
+    // Ansible
+    "**/defaults/**/*.yml": "jinja-yaml",
+    "**/group_vars/**/*": "jinja-yaml",
+    "**/host_vars/**/*": "jinja-yaml",
+    "**/vars/*.yml": "plaintext",
+    "**/vars/**/*.yml": "jinja-yaml",
+    "**/tasks/**/*.yml": "ansible",
+    "**/handlers/*.yml": "ansible",
+    "**/roles/**/*.yml": "ansible",
+    "**/playbooks/**/*.yml": "ansible",
+     "**/ansible/*.yml": "ansible",
+    "**/ansible/**/hosts": "ini",
+    "**/ansible/**/inventory": "ini",
+    "ansible.cfg": "ini",
+},
+
+"[ansible]": {
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+},
+
+"[jinja-yaml]": {
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+},
+
+    "editor.fontSize": 12,
+    "editor.wordWrap": "on",
+
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+
+    "workbench.colorTheme": "GitHub Plus",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.snippetSuggestions": "top",
+    "editor.formatOnPaste": true,
+
+    "window.zoomLevel": 2,
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.iconTheme": "vscode-simpler-icons",
+
+    // Configure glob patterns for excluding files and folders. For example, the files explorer decides which files and folders to show or hide based on this setting.
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": false,
+        "**/.DS_Store": false
+    },
+
+    "markdownlint.config": {
+        "default": true,
+        "no-hard-tabs": false,
+        // Header style
+        "MD003": {
+            "style": "atx"
+        },
+        // Unordered list indentation    
+        "MD007": {
+            "indent": 4
+        },
+        // First line in file should be a top level header
+        "MD041": false,
+        // First header should be a top level header    
+        "MD002": false,
+        // Fenced code blocks should have a language specified    
+        "MD040": false
+    },
+
+
+    "python": {
+        "pythonPath": "python3"
+    },
+    
+    "window.menuBarVisibility": "default",
+    "workbench.activityBar.visible": false,
+    "workbench.statusBar.feedback.visible": false,
+    "workbench.sideBar.location": "left",
+    "markdown.preview.doubleClickToSwitchToEditor": false,
+    "window.titleBarStyle": "native",
+    "window.title": "${dirty}${activeEditorMedium}${separator}${rootName}${separator}${appName}",
+    "workbench.enableExperiments": false,
+    "workbench.settings.enableNaturalLanguageSearch": false,
+
+}
