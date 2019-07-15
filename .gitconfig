@@ -13,7 +13,7 @@
 [alias]
         co = checkout
         br = branch
-        cm = commit
+        ci = commit
         st = status
         mnf = merge --no-ff
         tree = log --graph --decorate --abbrev-commit --oneline
