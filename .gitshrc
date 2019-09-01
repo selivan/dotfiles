@@ -1,2 +1,4 @@
 unalias rm
 unset PROMPT_COMMAND
+# set shell title to "git repository_name"
+echo -ne "\033]0;git $(basename $(pwd))\007"
