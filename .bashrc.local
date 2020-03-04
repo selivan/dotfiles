@@ -1,0 +1,2 @@
+# https://selivan.github.io/2017/08/20/pci-dss-session-limitied-time-implementation-and-bypass.html
+#test -n "$TMOUT" && exec sh -c "unset TMOUT; exec bash"
