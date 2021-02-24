@@ -22,3 +22,18 @@ set skip-completed-text on
 #set input-meta on
 #set output-meta on
 #set convert-meta off
+
+# https://habr.com/ru/company/lanit/blog/537596/#comment_22726870
+# Мне удобнее использовать Up/Down для листания истории с учётом начала команды. И Tab без учёта регистра. Поэтому всегда первым делом правлю .inputrc:
+
+# "\e[A": history-search-backward
+# "\e[B": history-search-forward
+# "\e\e": kill-whole-line
+
+# set colored-stats On
+# set completion-ignore-case On
+# set completion-prefix-display-length 3
+# set mark-symlinked-directories On
+# set show-all-if-ambiguous On
+# set show-all-if-unmodified On
+# set visible-stats On
