@@ -1,4 +1,9 @@
-unalias rm
+# regular rm command is used more often
+alias rm 2>/dev/null && unalias rm
+
+# unnecessary for git-sh
 unset PROMPT_COMMAND
+
 # set shell title to "git repository_name"
-echo -ne "\033]0;git $(basename $(pwd))\007"
+echo -ne '\033]0;'git "$(basename $(git rev-parse --show-toplevel))"'\007'
+
