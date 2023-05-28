@@ -1,2 +1,46 @@
 # https://selivan.github.io/2017/08/20/pci-dss-session-limitied-time-implementation-and-bypass.html
 #test -n "$TMOUT" && exec sh -c "unset TMOUT; exec bash"
+
+if echo "$PATH" | grep -q "$HOME/.local/bin"; then
+        true
+else
+        export PATH="$HOME/.local/bin:$PATH"
+fi
+
+export WINDOWS_HOST_IP=$(ip r | grep ^default | cut -d' ' -f3)
+
+# Use external X server for WSL
+export DISPLAY=$WINDOWS_HOST_IP:0
+export LIBGL_ALWAYS_INDIRECT=1
+
+# X server is available
+if timeout 0.1 xset q &> /dev/null; then
+
+        # DPI
+        xrdb -merge ~/.Xresources
+        #gsettings set org.gnome.desktop.interface text-scaling-factor 1.5 &
+        #export GDK_SCALE=2 # integer only
+
+        setxkbmap us,ru -option grp:alt_shift_toggle
+
+fi
+
+# SSH keys from Windows openssh agent
+export SSH_AUTH_SOCK=/tmp/ssh-auth-sock
+
+if ! fuser "$SSH_AUTH_SOCK" &> /dev/null; then
+        rm -f "$SSH_AUTH_SOCK"
+        socat \
+                UNIX-LISTEN:${SSH_AUTH_SOCK},umask=0077,fork \
+                EXEC:'/mnt/c/tools/npiperelay/npiperelay.exe -ep -s //./pipe/openssh-ssh-agent' &
+                #EXEC:'/mnt/c/tools/npiperelay/npiperelay.exe -ep -s //./pipe/openssh-ssh-agent',nofork &
+                #EXEC:'npiperelay.exe -ep -s //./pipe/openssh-ssh-agent',nofork &
+fi
+
+# GPG
+# fix GPG not understanding where to read the input from
+export GPG_TTY=$(tty)
+
+if ! pgrep gpg-agent >/dev/null; then
+        nohup gpg-agent --daemon >/dev/null 2>&1
+fi
