@@ -7,4 +7,7 @@ pager=
 mode = auto
 
 [pager]
-pager = less -FRX
+# --no-init(-X) do not send initizlization and deinitialization strings to terminal
+# --RAW-CONTROL-CHARS(-R) display "raw" control characters, but only color and OSC 8 hyperlink
+# --quit-if-one-screen(-F)
+pager = less --quit-if-one-screen --no-init --RAW-CONTROL-CHARS
